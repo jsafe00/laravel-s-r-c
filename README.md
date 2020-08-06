@@ -11,4 +11,11 @@ composer require safventure/laravel-s-r-c
 <b> Make CRUD service-repository-controller</b><br/>
 php artisan make:src {Name} <br />
 
+<b> Make CRUD service</b><br/>
+php artisan make:service {Name} <br />
 
+<b> Make CRUD repository</b><br/>
+php artisan make:repository {Name} <br />
+
+<b> Make CRUD controller</b><br/>
+php artisan make:rscontroller {Name} <br />
