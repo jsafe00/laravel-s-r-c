@@ -1,0 +1,133 @@
+<?php
+namespace DummyNamespace;
+
+use DummyModelNamespace;
+use DummyRepositoryNamespace;
+use Exception;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use InvalidArgumentException;
+
+class DummyClass
+{
+	/**
+     * @var $DummyRepositoryParameter
+     */
+    protected $DummyRepositoryParameter;
+
+    /**
+     * DummyClass constructor.
+     *
+     * @param DummyRepository $DummyRepositoryParameter
+     */
+    public function __construct(DummyRepository $DummyRepositoryParameter)
+    {
+        $this->DummyRepositoryParameter = $DummyRepositoryParameter;
+    }
+
+    /**
+     * Get all DummyModelParameter.
+     *
+     * @return String
+     */
+    public function getAll()
+    {
+        return $this->DummyRepositoryParameter->getAllDummyModel();
+    }
+
+    /**
+     * Get DummyModelParameter by id.
+     *
+     * @param $id
+     * @return String
+     */
+    public function getById($id)
+    {
+        return $this->DummyRepositoryParameter->getById($id);
+    }
+
+    /**
+     * Validate DummyModelParameter data.
+     * Store to DB if there are no errors.
+     *
+     * @param array $data
+     * @return String
+     */
+    public function saveDummyModelData($data)
+    {
+        $validator = Validator::make($data, [
+            //insert your validations here
+        ]);
+
+        if ($validator->fails()) {
+            throw new InvalidArgumentException($validator->errors()->first());
+        }
+
+        $result = $this->DummyRepositoryParameter->save($data);
+
+        return $result;
+    }
+
+    /**
+     * Update DummyModelParameter data
+     * Store to DB if there are no errors.
+     *
+     * @param array $data
+     * @return String
+     */
+    public function updateDummyModel($data, $id)
+    {
+        $validator = Validator::make($data, [
+           //insert your validations here
+        ]);
+
+        if ($validator->fails()) {
+            throw new InvalidArgumentException($validator->errors()->first());
+        }
+
+        DB::beginTransaction();
+
+        try {
+            $DummyModelParameter = $this->DummyRepositoryParameter->update($data, $id);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to update post data');
+        }
+
+        DB::commit();
+
+        return $DummyModelParameter;
+
+    }
+
+    /**
+     * Delete DummyModelParameter by id.
+     *
+     * @param $id
+     * @return String
+     */
+    public function deleteById($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $DummyModelParameter = $this->DummyRepositoryParameter->delete($id);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to delete post data');
+        }
+
+        DB::commit();
+
+        return $DummyModelParameter;
+
+    }
+
+}

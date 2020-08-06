@@ -1,0 +1,96 @@
+<?php
+namespace DummyNamespace;
+
+use DummyModelNamespace;
+
+class DummyClass
+{
+	 /**
+     * @var DummyModel
+     */
+    protected $DummyModelParameter;
+
+    /**
+     * DummyClass constructor.
+     *
+     * @param DummyModel $DummyModelParameter
+     */
+    public function __construct(DummyModel $DummyModelParameter)
+    {
+        $this->DummyModelParameter = $DummyModelParameter;
+    }
+
+    /**
+     * Get all DummyModelParameter.
+     *
+     * @return DummyModel $DummyModelParameter
+     */
+    public function getAllDummyModel()
+    {
+        return $this->DummyModelParameter
+            ->get();
+    }
+
+     /**
+     * Get DummyModelParameter by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getById($id)
+    {
+        return $this->DummyModelParameter
+            ->where('id', $id)
+            ->get();
+    }
+
+    /**
+     * Save DummyModel
+     *
+     * @param $data
+     * @return DummyModel
+     */
+     public function save($data)
+    {
+        $DummyModelParameter = new $this->DummyModelParameter;
+
+        //insert your data here
+
+        $DummyModelParameter->save();
+
+        return $DummyModelParameter->fresh();
+    }
+
+     /**
+     * Update DummyModel
+     *
+     * @param $data
+     * @return DummyModel
+     */
+    public function update($data, $id)
+    {
+        
+        $DummyModelParameter = $this->DummyModelParameter->find($id);
+
+         //insert your data here
+
+        $DummyModelParameter->update();
+
+        return $DummyModelParameter;
+    }
+
+    /**
+     * Delete DummyModel
+     *
+     * @param $data
+     * @return DummyModel
+     */
+   	 public function delete($id)
+    {
+        
+        $DummyModelParameter = $this->DummyModelParameter->find($id);
+        $DummyModelParameter->delete();
+
+        return $DummyModelParameter;
+    } 
+}
