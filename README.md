@@ -10,6 +10,7 @@ composer require safventure/laravel-s-r-c
 <br />
 <b> Make CRUD service-repository-controller</b><br/>
 php artisan make:src {Name} <br />
+ex. php artisan make:src Post <br />
 
 <b> Make CRUD service</b><br/>
 php artisan make:service {Name} <br />
