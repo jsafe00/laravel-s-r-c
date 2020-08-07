@@ -55,10 +55,10 @@ class ServiceCommandGenerator extends GeneratorCommand
     {
         if (strpos(trim($this->argument('name')), 'Service') !== false) {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Service';
         } else {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Service';
         }
     }
 

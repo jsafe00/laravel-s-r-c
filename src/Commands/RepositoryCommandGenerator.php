@@ -54,10 +54,10 @@ class RepositoryCommandGenerator extends GeneratorCommand
     {
         if (strpos(trim($this->argument('name')), 'Repository') !== false) {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Repository';
         } else {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Repository';
         }
     }
 

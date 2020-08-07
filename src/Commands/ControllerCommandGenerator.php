@@ -53,12 +53,12 @@ class ControllerCommandGenerator extends GeneratorCommand
      */
     protected function getNameInput()
     {
-        if (strpos(trim($this->argument('name')), 'Service') !== false) {
+        if (strpos(trim($this->argument('name')), 'Controller') !== false) {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Controller';
         } else {
 
-            return trim($this->argument('name'));
+            return trim($this->argument('name')). 'Controller';
         }
     }
 

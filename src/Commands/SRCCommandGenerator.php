@@ -38,17 +38,17 @@ class SRCCommandGenerator extends Command
     {
 
         Artisan::call('make:service', [
-            'name' => $this->argument('name') . 'Service'
+            'name' => $this->argument('name')
         ]);
 
         Artisan::call('make:repository', [
-            'name' => $this->argument('name') . 'Repository'
+            'name' => $this->argument('name')
         ]);
 
         Artisan::call('make:rscontroller', [
-            'name' => $this->argument('name') . 'Controller'
+            'name' => $this->argument('name')
         ]);
 
-        $this->info('Service Repository Controller --resource successfully created');
+        $this->info('CRUD Service-Repository-Controller successfully created');
     }
 }

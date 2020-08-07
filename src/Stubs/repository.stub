@@ -11,7 +11,7 @@ class DummyClass
     protected $DummyModelParameter;
 
     /**
-     * DummyClass constructor.
+     * DummyModel constructor.
      *
      * @param DummyModel $DummyModelParameter
      */
